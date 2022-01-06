@@ -1,6 +1,6 @@
 Sub Dosomething()
     Dim xSh As Worksheet
-    Application.ScreenUpdating = False
+    Application.ScreenUpdating = True
     For Each xSh In Worksheets
         xSh.Select
         Call RunCode
