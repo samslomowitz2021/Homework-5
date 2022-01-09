@@ -1,7 +1,5 @@
 import csv
 import numpy as np
-from numpy.lib.index_tricks import index_exp
-from numpy.lib.shape_base import row_stack
 
 csvpath = "Submission\\PyBank\\Resources\\budget_data.csv"
 
@@ -40,7 +38,7 @@ max_value_3 = int(max_value_2)
 
 
 result = np.where(max_value == max_value_3)
-# The output of 'result2' shows that the month of interest is on the 24 index of 'max_value'. 
+# The output of 'result' shows that the month of interest is on the 24 index of 'max_value'. 
 # However, the original array was 'rows' which is the 25 index. We add one for the change or differerence
 # math operation. Thus, we find the month of interest on the 25 index of 'rows'
 
