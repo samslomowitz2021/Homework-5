@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-csvpath = "Submission\PyPoll\Resources\election_data.csv"
+csvpath = "PyPoll\Resources\election_data.csv"
 
 rows = []
 with open(csvpath) as csvfile:

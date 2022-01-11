@@ -1,7 +1,7 @@
 import csv
 import numpy as np
 
-csvpath = "Submission\\PyBank\\Resources\\budget_data.csv"
+csvpath = "PyBank\\Resources\\budget_data.csv"
 
 rows = []
 with open(csvpath) as csvfile:
@@ -62,7 +62,7 @@ month_lowest = rows[44][0]
 print(f"""Financial Analysis
 -------------------------------
 Total months: {total_months}
-Total: $ {sum_total_2}
-Average Change: $ {average_change_2}
+Total: ${sum_total_2}
+Average Change: ${average_change_2}
 Greatest Increase in Profits: {month_greatest} ${max_value_3}
 Greatest Decrease in Profits: {month_lowest} ${min_value_3} """)
