@@ -43,7 +43,7 @@ election_dictionary = {"Khan": khan_percentage_round,
 
 election_winner = max(election_dictionary, key = election_dictionary.get)
 
-print(f"""Election Results
+results = (f"""Election Results
 _______________________________
 Total Votes: {total_votes}
 ______________________________
@@ -53,3 +53,8 @@ Li: {li_percentage_round}% {li_votes}
 O'Tooley: {otooley_percentage_round}% {otooley_votes}
 ______________________________
 Winner: {election_winner}""")
+
+print(results)
+
+with open("PyPoll\\analysis\\analysis.txt", "w") as file:
+    file.write(results)

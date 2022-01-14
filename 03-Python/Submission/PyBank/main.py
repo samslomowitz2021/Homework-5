@@ -59,10 +59,15 @@ print(result2)
 
 month_lowest = rows[44][0]
 
-print(f"""Financial Analysis
+results = (f"""Financial Analysis
 -------------------------------
 Total months: {total_months}
 Total: ${sum_total_2}
 Average Change: ${average_change_2}
 Greatest Increase in Profits: {month_greatest} ${max_value_3}
 Greatest Decrease in Profits: {month_lowest} ${min_value_3} """)
+
+print(results)
+
+with open("PyBank\\analysis\\analysis.txt", "w") as file:
+    file.write(results)
