@@ -1,5 +1,5 @@
 import pymongo
-from scrape_costa import ScrapingHelper
+from scrape_mars import ScrapingHelper
 
 class MongoHelper():
     def __init__(self):
@@ -10,14 +10,14 @@ class MongoHelper():
         self.engine = pymongo.MongoClient(self.conn)
 
         # Connect to a database. Will create one if not already available.
-        self.db = self.engine.mars
+        self.db = self.engine.mars_db2
 
     def insertData(self, data):
         # Drops collection if available to remove duplicates
-        self.db.weather.drop()
+        self.db.space.drop()
 
         # Creates a collection in the database and inserts two documents
-        self.db.weather.insert_many(
+        self.db.space.insert_many(
             [
                 data
             ]

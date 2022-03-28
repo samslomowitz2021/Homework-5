@@ -1,13 +1,13 @@
 from flask import Flask, render_template, redirect
-from mongoHelper import MongoHelper
-from scrape_costa import ScrapingHelper
+from MongoHelper import MongoHelper
+from scrape_mars import ScrapingHelper
 
 # Create an instance of Flask
 app = Flask(__name__)
 
 # init helper classes
 mongo = MongoHelper()
-scraper = scrape_mars()
+scraper = ScrapingHelper()
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
@@ -15,10 +15,10 @@ def home():
 
     # Find one record of data from the mongo database
     # @TODO: YOUR CODE HERE!
-    destination_data = list(mongo.db.weather.find())[0]
+    destination_data = list(mongo.db.mars_db2.find())[0]
 
     # Return template and data
-    return render_template("index.html", vacation=destination_data)
+    return render_template("index.html", space=destination_data)
 
 
 # Route that will trigger the scrape function
@@ -27,7 +27,7 @@ def scrape():
 
     # Run the scrape function and save the results to a variable
     # DO SCRAPING WORK
-    data = scraper.getData()
+    data = scraper.scrape_mars()
 
 
     # Update the Mongo database using update and upsert=True
