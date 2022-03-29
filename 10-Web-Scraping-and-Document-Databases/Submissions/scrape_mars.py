@@ -10,14 +10,15 @@ import numpy as np
 
 import requests
 
-class ScrapingHelper():
+class getData():
     def __init__(self):
-        self.base='https://spaceimages-mars.com/'
+        pass
         
     def scrape_mars(self):
-        # url = self.base
-
-        # browser.visit(url)
+        url = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        executable_path = {'executable_path': ChromeDriverManager().install()}
+        browser = Browser('chrome', **executable_path, headless=False)
+        browser.visit(url)
 
         # browser.click_link_by_partial_text('development jQuery 3.6.0')
 
@@ -27,33 +28,32 @@ class ScrapingHelper():
         #     except:
         #         pass
 
-        url = self.base
+        url = 'https://redplanetscience.com/'
 
         
         
-        # browser.visit(url)
+        browser.visit(url)
 
-        # response = requests.get(url)
+        response = requests.get(url)
 
-        # html = response.text
+        html = response.text
 
-        # html = browser.html
-        # soup = BeautifulSoup(html)
+        html = browser.html
+        soup = BeautifulSoup(html)
 
-        # news_title = soup.find_all("div", {"class":"content_title"})
+        news_title = soup.find_all("div", {"class":"content_title"})
 
-        # news_title2=soup.find_all("div", {"class":"content_title"})[0].text
-        # news_title2
+        news_title2=soup.find_all("div", {"class":"content_title"})[0].text
+        news_title2
                 
         
-        # news_para = soup.find_all("div", {"class":"article_teaser_body"})
+        news_para = soup.find_all("div", {"class":"article_teaser_body"})
 
-        # news_para2=soup.find_all("div", {"class":"article_teaser_body"})[0].text
-        # news_para2
+        news_para2=soup.find_all("div", {"class":"article_teaser_body"})[0].text
+        news_para2
 
-        # url = 'https://spaceimages-mars.com/'
-        executable_path = {'executable_path': ChromeDriverManager().install()}
-        browser = Browser('chrome', **executable_path, headless=False, incognito=False)
+        url = 'https://spaceimages-mars.com/'
+        
         browser.visit(url)
 
         browser.click_link_by_partial_text('FULL IMAGE')

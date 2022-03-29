@@ -1,25 +1,39 @@
 from flask import Flask, render_template, redirect
-from MongoHelper import MongoHelper
-from scrape_mars import ScrapingHelper
+from scrape_mars import getData
+import pymongo
 
-# Create an instance of Flask
+scraper = getData()
+
+# Create an instance of Flask]
 app = Flask(__name__)
 
 # init helper classes
-mongo = MongoHelper()
-scraper = ScrapingHelper()
+conn = 'mongodb://localhost:27017'
+
+        # Pass connection to the pymongo instance.
+engine = pymongo.MongoClient(conn)
+
+        # Connect to a database. Will create one if not already available.
+db = engine.mars_db_20
+
+def insertData(self, data):
+    # Drops collection if available to remove duplicates
+    self.db.mars_db_20.drop()
+
+    # Creates a collection in the database and inserts two documents
+    self.db.mars_db_20.insert_many(
+        [
+            data
+        ]
+    )
+
+
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
-
-    # Find one record of data from the mongo database
-    # @TODO: YOUR CODE HERE!
-    destination_data = list(mongo.db.mars_db2.find())[0]
-
-    # Return template and data
-    return render_template("index.html", space=destination_data)
-
+    mydata = list(db.db.mars_db_20.find())[0]
+    return render_template('index.html', space=mydata)
 
 # Route that will trigger the scrape function
 @app.route("/scrape")
@@ -27,14 +41,15 @@ def scrape():
 
     # Run the scrape function and save the results to a variable
     # DO SCRAPING WORK
-    data = scraper.scrape_mars()
+    data = scraper.getData()
 
 
     # Update the Mongo database using update and upsert=True
-    mongo.insertData(data)
+    db.insertData(data)
 
     # Redirect back to home page
     return redirect("/")
+
 
 
 if __name__ == "__main__":
