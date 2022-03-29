@@ -14,7 +14,7 @@ body {
   }
   
   header {
-    background: #333;
+    background: rgb(96, 108, 200);
   }
   
   h1 {
@@ -28,10 +28,11 @@ body {
   
   h3 {
     font-size: 24px;
+    color: #eee;
   }
   
   a {
-    color: #d21034;
+    color: #0e750b;
   }
   
   /* Selecting elements by class */
@@ -56,11 +57,72 @@ body {
     width: 70%;
   }
   
-  #contact-info {
+  #sidebar {
     width: 30%;
   }
   
   #footer2 {
-    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    position: right;
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    height: min-content;
+    background-color: rgb(96, 108, 200);
+    color: #efeee7;
+    text-align: center;
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    float: right;
   }
+  #sidebar {
+
+    float:right;
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+
+ #id_3 {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    color: #efeee7;
+    text-decoration: none;
+    float: right
+  }
+
+  #id_10 {
   
+    color: #efeee7;
+    text-decoration: none;
+  }
+
+  #id_11 {
+  
+    color: #efeee7;
+    text-decoration: underline;
+  }
+
+  #id_12 {
+  
+    color: #efeee7;
+    text-decoration: underline;
+  }
+
+  #id_2 {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+
+  ::-webkit-scrollbar-track {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    .
+    .
+    .
+}

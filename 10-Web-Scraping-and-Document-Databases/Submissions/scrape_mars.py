@@ -10,7 +10,7 @@ import numpy as np
 
 import requests
 
-class getData():
+class marsData():
     def __init__(self):
         pass
         
